@@ -1,0 +1,3197 @@
+{
+  "slices": [
+    {
+      "id": "3458764642064753899",
+      "status": "Created",
+      "index": 1,
+      "title": "slice: Add Book",
+      "context": "Library",
+      "sliceType": "STATE_CHANGE",
+      "commands": [
+        {
+          "id": "3458764642064753847",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Add Book",
+          "title": "Add Book",
+          "fields": [
+            {
+              "name": "isbn",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "description",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "COMMAND",
+          "description": "",
+          "aggregate": "Catalog Configuration",
+          "aggregateDependencies": [
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642064315586",
+              "type": "OUTBOUND",
+              "title": "Book added",
+              "elementType": "EVENT"
+            },
+            {
+              "id": "3458764642065342526",
+              "type": "INBOUND",
+              "title": "Book registration",
+              "elementType": "SCREEN"
+            }
+          ],
+          "createsAggregate": true,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "projection": "events.forEach((eventData)=>{\n    let event = eventData.data\n   switch(eventData.type) {\n   \n    }}\n  )\n    ",
+            "placement": "MAIN",
+            "initialValue": true,
+            "order": 99,
+            "activeByDefault": true
+          }
+        }
+      ],
+      "events": [
+        {
+          "id": "3458764642064315586",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Add Book",
+          "title": "Book added",
+          "fields": [
+            {
+              "name": "isbn",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "description",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "EVENT",
+          "description": "",
+          "aggregate": "Catalog Configuration",
+          "aggregateDependencies": [
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642073414451",
+              "type": "OUTBOUND",
+              "title": "Book Lookup",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642070623250",
+              "type": "OUTBOUND",
+              "title": "Active Borrowings",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642064803991",
+              "type": "OUTBOUND",
+              "title": "Books",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642065022728",
+              "type": "OUTBOUND",
+              "title": "Catalogue",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642064753847",
+              "type": "INBOUND",
+              "title": "Add Book",
+              "elementType": "COMMAND"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "readmodels": [],
+      "screens": [
+        {
+          "id": "3458764642065342526",
+          "tags": [],
+          "groupId": "3458764642065342530",
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Add Book",
+          "title": "Book registration",
+          "fields": [
+            {
+              "name": "isbn",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "description",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "SCREEN",
+          "description": "",
+          "aggregate": "Catalog Configuration",
+          "aggregateDependencies": [
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642064753847",
+              "type": "OUTBOUND",
+              "title": "Add Book",
+              "elementType": "COMMAND"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": true,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screenImages": [],
+      "screenLayouts": [],
+      "processors": [],
+      "tables": [],
+      "specifications": [
+        {
+          "vertical": false,
+          "id": "3458764642076142751",
+          "sliceName": "slice: Add Book",
+          "title": "spec: Add New Book",
+          "given": [],
+          "when": [
+            {
+              "title": "Add Book",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642076142754",
+              "type": "SPEC_COMMAND",
+              "fields": [
+                {
+                  "name": "isbn",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "978-3-16-148410-1"
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "1984"
+                },
+                {
+                  "name": "description",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "A dystopian social science fiction novel and cautionary tale."
+                },
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064753847"
+            }
+          ],
+          "then": [
+            {
+              "title": "Book added",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642076142758",
+              "type": "SPEC_EVENT",
+              "fields": [
+                {
+                  "name": "isbn",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "978-3-16-148410-1"
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "1984"
+                },
+                {
+                  "name": "description",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "A dystopian social science fiction novel and cautionary tale."
+                },
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064315586"
+            }
+          ],
+          "comments": [
+            {
+              "description": "Comment"
+            }
+          ],
+          "linkedId": "3458764642064753899"
+        },
+        {
+          "vertical": false,
+          "id": "3458764642076142723",
+          "sliceName": "slice: Add Book",
+          "title": "spec: Add Book with Unique ISBN",
+          "given": [
+            {
+              "title": "Book added",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642076142739",
+              "type": "SPEC_EVENT",
+              "fields": [
+                {
+                  "name": "isbn",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "978-3-16-148410-0"
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "The Great Gatsby"
+                },
+                {
+                  "name": "description",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "A novel written by American author F. Scott Fitzgerald."
+                },
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064753847"
+                }
+              ],
+              "linkedId": "3458764642064315586"
+            }
+          ],
+          "when": [
+            {
+              "title": "Add Book",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642076142730",
+              "type": "SPEC_COMMAND",
+              "fields": [
+                {
+                  "name": "isbn",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "978-3-16-148410-0"
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "The Great Gatsby"
+                },
+                {
+                  "name": "description",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "A novel written by American author F. Scott Fitzgerald."
+                },
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064753847"
+                }
+              ],
+              "linkedId": "3458764642064753847"
+            }
+          ],
+          "then": [
+            {
+              "title": "Error-Case",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642076142734",
+              "type": "SPEC_ERROR",
+              "fields": []
+            }
+          ],
+          "comments": [
+            {
+              "description": "Comment"
+            }
+          ],
+          "linkedId": "3458764642064753899"
+        }
+      ],
+      "actors": [],
+      "aggregates": [
+        "Catalog Configuration"
+      ]
+    },
+    {
+      "id": "3458764642064804048",
+      "status": "Created",
+      "index": 3,
+      "title": "slice: book",
+      "context": "Library",
+      "sliceType": "STATE_VIEW",
+      "commands": [],
+      "events": [],
+      "readmodels": [
+        {
+          "id": "3458764642064803991",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: book",
+          "title": "Books",
+          "fields": [
+            {
+              "name": "isbn",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "description",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "READMODEL",
+          "description": "",
+          "aggregate": "Catalog Configuration",
+          "aggregateDependencies": [
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642065599540",
+              "type": "OUTBOUND",
+              "title": "Book Management",
+              "elementType": "SCREEN"
+            },
+            {
+              "id": "3458764642064315586",
+              "type": "INBOUND",
+              "title": "Book added",
+              "elementType": "EVENT"
+            },
+            {
+              "id": "3458764642064315589",
+              "type": "INBOUND",
+              "title": "Book removed",
+              "elementType": "EVENT"
+            }
+          ],
+          "listElement": true,
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screens": [
+        {
+          "id": "3458764642065599540",
+          "tags": [],
+          "groupId": "3458764642065599549",
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: book",
+          "title": "Book Management",
+          "fields": [
+            {
+              "name": "isbn",
+              "type": "String",
+              "subfields": [],
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "subfields": [],
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "description",
+              "type": "String",
+              "subfields": [],
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "subfields": [],
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "SCREEN",
+          "description": "",
+          "aggregate": "Catalog Configuration",
+          "aggregateDependencies": [
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642064867374",
+              "type": "OUTBOUND",
+              "title": "Activate Book",
+              "elementType": "COMMAND"
+            },
+            {
+              "id": "3458764642064804208",
+              "type": "OUTBOUND",
+              "title": "Remove Book",
+              "elementType": "COMMAND"
+            },
+            {
+              "id": "3458764642064803991",
+              "type": "INBOUND",
+              "title": "Books",
+              "elementType": "READMODEL"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": true,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screenImages": [],
+      "screenLayouts": [],
+      "processors": [],
+      "tables": [],
+      "specifications": [
+        {
+          "vertical": false,
+          "id": "3458764642080003213",
+          "sliceName": "slice: book",
+          "title": "spec: New Catalog Book",
+          "given": [
+            {
+              "title": "Book added",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642080003219",
+              "type": "SPEC_EVENT",
+              "fields": [
+                {
+                  "name": "isbn",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "978-3-16-148410-1"
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "1984"
+                },
+                {
+                  "name": "description",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "A dystopian social science fiction novel and cautionary tale."
+                },
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064315586"
+            }
+          ],
+          "when": [],
+          "then": [
+            {
+              "title": "Books",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642080003215",
+              "type": "SPEC_READMODEL",
+              "fields": [
+                {
+                  "name": "isbn",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "978-3-16-148410-1"
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "1984"
+                },
+                {
+                  "name": "description",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "A dystopian social science fiction novel and cautionary tale."
+                },
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064803991"
+            }
+          ],
+          "comments": [
+            {
+              "description": "Comment"
+            }
+          ],
+          "linkedId": "3458764642064804048"
+        }
+      ],
+      "actors": [],
+      "aggregates": [
+        "Catalog Configuration"
+      ]
+    },
+    {
+      "id": "3458764642064804286",
+      "status": "Created",
+      "index": 5,
+      "title": "slice: Remove Book",
+      "context": "Library",
+      "sliceType": "STATE_CHANGE",
+      "commands": [
+        {
+          "id": "3458764642064804208",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Remove Book",
+          "title": "Remove Book",
+          "fields": [
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "COMMAND",
+          "description": "",
+          "aggregate": "Catalog Configuration",
+          "aggregateDependencies": [
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642064315589",
+              "type": "OUTBOUND",
+              "title": "Book removed",
+              "elementType": "EVENT"
+            },
+            {
+              "id": "3458764642065599540",
+              "type": "INBOUND",
+              "title": "Book Management",
+              "elementType": "SCREEN"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "events": [
+        {
+          "id": "3458764642064315589",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Remove Book",
+          "title": "Book removed",
+          "fields": [
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "EVENT",
+          "description": "",
+          "aggregate": "Catalog Configuration",
+          "aggregateDependencies": [
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642064803991",
+              "type": "OUTBOUND",
+              "title": "Books",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642065022728",
+              "type": "OUTBOUND",
+              "title": "Catalogue",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642064804208",
+              "type": "INBOUND",
+              "title": "Remove Book",
+              "elementType": "COMMAND"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "readmodels": [],
+      "screens": [
+        {
+          "id": "3458764642065934632",
+          "tags": [],
+          "groupId": "3458764642065934636",
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Remove Book",
+          "title": "Book Management",
+          "fields": [
+            {
+              "name": "isbn",
+              "type": "String",
+              "subfields": [],
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "subfields": [],
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "description",
+              "type": "String",
+              "subfields": [],
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "subfields": [],
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "SCREEN",
+          "description": "",
+          "aggregate": "Catalog Configuration",
+          "aggregateDependencies": [
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642064804208",
+              "type": "OUTBOUND",
+              "title": "Remove Book",
+              "elementType": "COMMAND"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screenImages": [],
+      "screenLayouts": [],
+      "processors": [],
+      "tables": [],
+      "specifications": [
+        {
+          "vertical": false,
+          "id": "3458764642078285178",
+          "sliceName": "slice: Remove Book",
+          "title": "spec: Remove Non-Existent Book",
+          "given": [
+            {
+              "title": "Book added",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642078285186",
+              "type": "SPEC_EVENT",
+              "fields": [
+                {
+                  "name": "isbn",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "978-3-16-148410-1"
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "1984"
+                },
+                {
+                  "name": "description",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "A dystopian social science fiction novel and cautionary tale."
+                },
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064315586"
+            }
+          ],
+          "when": [
+            {
+              "title": "Remove Book",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642078285180",
+              "type": "SPEC_COMMAND",
+              "fields": [
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064801234"
+                }
+              ],
+              "linkedId": "3458764642064804208"
+            }
+          ],
+          "then": [
+            {
+              "title": "Error-Case",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642078285184",
+              "type": "SPEC_ERROR",
+              "fields": []
+            }
+          ],
+          "comments": [
+            {
+              "description": "Comment"
+            }
+          ],
+          "linkedId": "3458764642064804286"
+        },
+        {
+          "vertical": false,
+          "id": "3458764642078285149",
+          "sliceName": "slice: Remove Book",
+          "title": "spec: Remove Book when Book is Added",
+          "given": [
+            {
+              "title": "Book added",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642078285165",
+              "type": "SPEC_EVENT",
+              "fields": [
+                {
+                  "name": "isbn",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "978-3-16-148410-1"
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "1984"
+                },
+                {
+                  "name": "description",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "A dystopian social science fiction novel and cautionary tale."
+                },
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064315586"
+            }
+          ],
+          "when": [
+            {
+              "title": "Remove Book",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642078285153",
+              "type": "SPEC_COMMAND",
+              "fields": [
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064804208"
+            }
+          ],
+          "then": [
+            {
+              "title": "Book removed",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642078285159",
+              "type": "SPEC_EVENT",
+              "fields": [
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064315589"
+            }
+          ],
+          "comments": [
+            {
+              "description": "Comment"
+            }
+          ],
+          "linkedId": "3458764642064804286"
+        }
+      ],
+      "actors": [],
+      "aggregates": [
+        "Catalog Configuration"
+      ]
+    },
+    {
+      "id": "3458764642064867408",
+      "status": "Created",
+      "index": 7,
+      "title": "slice: Activate Book",
+      "context": "Library",
+      "sliceType": "STATE_CHANGE",
+      "commands": [
+        {
+          "id": "3458764642064867374",
+          "tags": [],
+          "modelContext": "Library",
+          "slice": "slice: Activate Book",
+          "title": "Activate Book",
+          "fields": [
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "COMMAND",
+          "description": "",
+          "aggregate": "Catalog Configuration",
+          "aggregateDependencies": [
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642064315603",
+              "type": "OUTBOUND",
+              "title": "Book activated",
+              "elementType": "EVENT"
+            },
+            {
+              "id": "3458764642065599540",
+              "type": "INBOUND",
+              "title": "Book Management",
+              "elementType": "SCREEN"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "events": [
+        {
+          "id": "3458764642064315603",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Activate Book",
+          "title": "Book activated",
+          "fields": [
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "EVENT",
+          "description": "",
+          "aggregate": "Catalog Configuration",
+          "aggregateDependencies": [
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642065022728",
+              "type": "OUTBOUND",
+              "title": "Catalogue",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642064867374",
+              "type": "INBOUND",
+              "title": "Activate Book",
+              "elementType": "COMMAND"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "readmodels": [],
+      "screens": [
+        {
+          "id": "3458764642068839027",
+          "tags": [],
+          "groupId": "3458764642068839033",
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Activate Book",
+          "title": "Book Management",
+          "fields": [
+            {
+              "name": "isbn",
+              "type": "String",
+              "subfields": [],
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "subfields": [],
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "description",
+              "type": "String",
+              "subfields": [],
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "subfields": [],
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "SCREEN",
+          "description": "",
+          "aggregate": "Catalog Configuration",
+          "aggregateDependencies": [
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642064867374",
+              "type": "OUTBOUND",
+              "title": "Activate Book",
+              "elementType": "COMMAND"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screenImages": [],
+      "screenLayouts": [],
+      "processors": [],
+      "tables": [],
+      "specifications": [
+        {
+          "vertical": false,
+          "id": "3458764642078881639",
+          "sliceName": "<p>slice: Activate Book</p>",
+          "title": "spec: Activate Book when Book is Removed",
+          "given": [
+            {
+              "title": "Book removed",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642078881648",
+              "type": "SPEC_EVENT",
+              "fields": [
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064315589"
+            },
+            {
+              "title": "Book added",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642078881646",
+              "type": "SPEC_EVENT",
+              "fields": [
+                {
+                  "name": "isbn",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "978-3-16-148410-1"
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "1984"
+                },
+                {
+                  "name": "description",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "A dystopian social science fiction novel and cautionary tale."
+                },
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064315586"
+            }
+          ],
+          "when": [
+            {
+              "title": "Activate Book",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642078881642",
+              "type": "SPEC_COMMAND",
+              "fields": [
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064867374"
+            }
+          ],
+          "then": [
+            {
+              "title": "Error-Case",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642078881644",
+              "type": "SPEC_ERROR",
+              "fields": []
+            }
+          ],
+          "comments": [
+            {
+              "description": "Comment"
+            }
+          ],
+          "linkedId": "3458764642064867408"
+        },
+        {
+          "vertical": false,
+          "id": "3458764642078881629",
+          "sliceName": "<p>slice: Activate Book</p>",
+          "title": "spec: Activate Book when Book is Added",
+          "given": [
+            {
+              "title": "Book added",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642078881636",
+              "type": "SPEC_EVENT",
+              "fields": [
+                {
+                  "name": "isbn",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "978-3-16-148410-1"
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "1984"
+                },
+                {
+                  "name": "description",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "A dystopian social science fiction novel and cautionary tale."
+                },
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064315586"
+            }
+          ],
+          "when": [
+            {
+              "title": "Activate Book",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642078881630",
+              "type": "SPEC_COMMAND",
+              "fields": [
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064867374"
+            }
+          ],
+          "then": [
+            {
+              "title": "Book activated",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642078881634",
+              "type": "SPEC_EVENT",
+              "fields": [
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064315603"
+            }
+          ],
+          "comments": [
+            {
+              "description": "Comment"
+            }
+          ],
+          "linkedId": "3458764642064867408"
+        }
+      ],
+      "actors": [],
+      "aggregates": [
+        "Catalog Configuration"
+      ]
+    },
+    {
+      "id": "3458764642088673757",
+      "status": "Created",
+      "index": 9,
+      "title": "slice: Logged In User",
+      "context": "Library",
+      "sliceType": "STATE_VIEW",
+      "commands": [],
+      "events": [],
+      "readmodels": [
+        {
+          "id": "3458764642070423016",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Logged In User",
+          "title": "Logged In User",
+          "fields": [
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "email",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            }
+          ],
+          "type": "READMODEL",
+          "description": "",
+          "aggregate": "default",
+          "aggregateDependencies": [],
+          "dependencies": [
+            {
+              "id": "3458764642070353478",
+              "type": "OUTBOUND",
+              "title": "Catalog",
+              "elementType": "SCREEN"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screens": [
+        {
+          "id": "3458764642070353478",
+          "tags": [],
+          "groupId": "3458764642070353486",
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Logged In User",
+          "title": "Catalog",
+          "fields": [
+            {
+              "name": "email",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "bookId",
+              "type": "String",
+              "mapping": "id",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "borrowDate",
+              "type": "Date",
+              "generated": true,
+              "cardinality": "Single",
+              "idAttribute": false
+            }
+          ],
+          "type": "SCREEN",
+          "description": "",
+          "aggregate": "default",
+          "aggregateDependencies": [],
+          "dependencies": [
+            {
+              "id": "3458764642065022559",
+              "type": "OUTBOUND",
+              "title": "Borrow book",
+              "elementType": "COMMAND"
+            },
+            {
+              "id": "3458764642070423016",
+              "type": "INBOUND",
+              "title": "Logged In User",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642065022728",
+              "type": "INBOUND",
+              "title": "Catalogue",
+              "elementType": "READMODEL"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": true,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screenImages": [],
+      "screenLayouts": [],
+      "processors": [],
+      "tables": [],
+      "specifications": [],
+      "actors": [],
+      "aggregates": []
+    },
+    {
+      "id": "3458764642065220877",
+      "status": "Created",
+      "index": 11,
+      "title": "slice: Catalogue",
+      "context": "Library",
+      "sliceType": "STATE_VIEW",
+      "commands": [],
+      "events": [],
+      "readmodels": [
+        {
+          "id": "3458764642065022728",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Catalogue",
+          "title": "Catalogue",
+          "fields": [
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            },
+            {
+              "name": "description",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "isbn",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            }
+          ],
+          "type": "READMODEL",
+          "description": "",
+          "aggregate": "Catalog Configuration",
+          "aggregateDependencies": [
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642070353478",
+              "type": "OUTBOUND",
+              "title": "Catalog",
+              "elementType": "SCREEN"
+            },
+            {
+              "id": "3458764642064315586",
+              "type": "INBOUND",
+              "title": "Book added",
+              "elementType": "EVENT"
+            },
+            {
+              "id": "3458764642064315603",
+              "type": "INBOUND",
+              "title": "Book activated",
+              "elementType": "EVENT"
+            },
+            {
+              "id": "3458764642064315589",
+              "type": "INBOUND",
+              "title": "Book removed",
+              "elementType": "EVENT"
+            }
+          ],
+          "listElement": true,
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screens": [
+        {
+          "id": "3458764642070353478",
+          "tags": [],
+          "groupId": "3458764642070353486",
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Catalogue",
+          "title": "Catalog",
+          "fields": [
+            {
+              "name": "email",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "bookId",
+              "type": "String",
+              "mapping": "id",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "borrowDate",
+              "type": "Date",
+              "generated": true,
+              "cardinality": "Single",
+              "idAttribute": false
+            }
+          ],
+          "type": "SCREEN",
+          "description": "",
+          "aggregate": "Catalog Configuration",
+          "aggregateDependencies": [
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642065022559",
+              "type": "OUTBOUND",
+              "title": "Borrow book",
+              "elementType": "COMMAND"
+            },
+            {
+              "id": "3458764642070423016",
+              "type": "INBOUND",
+              "title": "Logged In User",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642065022728",
+              "type": "INBOUND",
+              "title": "Catalogue",
+              "elementType": "READMODEL"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": true,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screenImages": [],
+      "screenLayouts": [],
+      "processors": [],
+      "tables": [],
+      "specifications": [
+        {
+          "vertical": false,
+          "id": "3458764642079149084",
+          "sliceName": "slice: Catalogue",
+          "title": "spec: Catalogue Update after Book Removed",
+          "given": [
+            {
+              "title": "Book removed",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642079149094",
+              "type": "SPEC_EVENT",
+              "fields": [
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064315589"
+            },
+            {
+              "title": "Book added",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642079149086",
+              "type": "SPEC_EVENT",
+              "fields": [
+                {
+                  "name": "isbn",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "978-3-16-148410-1"
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "1984"
+                },
+                {
+                  "name": "description",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "A dystopian social science fiction novel and cautionary tale."
+                },
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064315586"
+            }
+          ],
+          "when": [],
+          "then": [
+            {
+              "title": "Catalogue",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642079149085",
+              "type": "SPEC_READMODEL",
+              "fields": [
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": ""
+                },
+                {
+                  "name": "description",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": ""
+                },
+                {
+                  "name": "isbn",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": ""
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": ""
+                }
+              ],
+              "linkedId": "3458764642065022728",
+              "expectEmptyList": true
+            }
+          ],
+          "comments": [
+            {
+              "description": "Comment"
+            }
+          ],
+          "linkedId": "3458764642065220877"
+        },
+        {
+          "vertical": false,
+          "id": "3458764642079149068",
+          "sliceName": "slice: Catalogue",
+          "title": "spec: Catalogue Update after Book Added",
+          "given": [
+            {
+              "title": "Book added",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642079149075",
+              "type": "SPEC_EVENT",
+              "fields": [
+                {
+                  "name": "isbn",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "978-3-16-148410-1"
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "1984"
+                },
+                {
+                  "name": "description",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "A dystopian social science fiction novel and cautionary tale."
+                },
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                }
+              ],
+              "linkedId": "3458764642064315586"
+            }
+          ],
+          "when": [],
+          "then": [
+            {
+              "title": "Catalogue",
+              "tags": [],
+              "examples": [],
+              "id": "3458764642079149071",
+              "type": "SPEC_READMODEL",
+              "fields": [
+                {
+                  "name": "id",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "3458764642064803993"
+                },
+                {
+                  "name": "description",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "A dystopian social science fiction novel and cautionary tale."
+                },
+                {
+                  "name": "isbn",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "978-3-16-148410-1"
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "cardinality": "Single",
+                  "subfields": [],
+                  "example": "1984"
+                }
+              ],
+              "linkedId": "3458764642065022728"
+            }
+          ],
+          "comments": [
+            {
+              "description": "Comment"
+            }
+          ],
+          "linkedId": "3458764642065220877"
+        }
+      ],
+      "actors": [],
+      "aggregates": [
+        "Catalog Configuration"
+      ]
+    },
+    {
+      "id": "3458764642065022651",
+      "status": "Created",
+      "index": 13,
+      "title": "slice: Borrow User Book",
+      "context": "Library",
+      "sliceType": "STATE_CHANGE",
+      "commands": [
+        {
+          "id": "3458764642065022559",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Borrow User Book",
+          "title": "Borrow book",
+          "fields": [
+            {
+              "name": "email",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "bookId",
+              "type": "String",
+              "mapping": "id",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "borrowDate",
+              "type": "Date",
+              "generated": true,
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "generated": true,
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "COMMAND",
+          "description": "",
+          "aggregate": "Borrowing",
+          "aggregateDependencies": [
+            "Borrowing"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642064315598",
+              "type": "OUTBOUND",
+              "title": "Book borrowed",
+              "elementType": "EVENT"
+            },
+            {
+              "id": "3458764642070353478",
+              "type": "INBOUND",
+              "title": "Catalog",
+              "elementType": "SCREEN"
+            }
+          ],
+          "createsAggregate": true,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "events": [
+        {
+          "id": "3458764642064315598",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Borrow User Book",
+          "title": "Book borrowed",
+          "fields": [
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "email",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "bookId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "borrowDate",
+              "type": "Date",
+              "generated": true,
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "EVENT",
+          "description": "",
+          "aggregate": "Borrowing",
+          "aggregateDependencies": [
+            "Borrowing"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642065112671",
+              "type": "OUTBOUND",
+              "title": "Overdue books",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642065112215",
+              "type": "OUTBOUND",
+              "title": "Returned Book Information",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642070623250",
+              "type": "OUTBOUND",
+              "title": "Active Borrowings",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642065022559",
+              "type": "INBOUND",
+              "title": "Borrow book",
+              "elementType": "COMMAND"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "readmodels": [],
+      "screens": [
+        {
+          "id": "3458764642070353478",
+          "tags": [],
+          "groupId": "3458764642070353486",
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Borrow User Book",
+          "title": "Catalog",
+          "fields": [
+            {
+              "name": "email",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "bookId",
+              "type": "String",
+              "mapping": "id",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "borrowDate",
+              "type": "Date",
+              "generated": true,
+              "cardinality": "Single",
+              "idAttribute": false
+            }
+          ],
+          "type": "SCREEN",
+          "description": "",
+          "aggregate": "Borrowing",
+          "aggregateDependencies": [
+            "Borrowing"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642065022559",
+              "type": "OUTBOUND",
+              "title": "Borrow book",
+              "elementType": "COMMAND"
+            },
+            {
+              "id": "3458764642070423016",
+              "type": "INBOUND",
+              "title": "Logged In User",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642065022728",
+              "type": "INBOUND",
+              "title": "Catalogue",
+              "elementType": "READMODEL"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": true,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screenImages": [],
+      "screenLayouts": [],
+      "processors": [],
+      "tables": [],
+      "specifications": [],
+      "actors": [
+        {
+          "name": "User"
+        }
+      ],
+      "aggregates": [
+        "Borrowing"
+      ]
+    },
+    {
+      "id": "3458764642088179442",
+      "status": "Created",
+      "index": 15,
+      "title": "slice: Active Borrowings",
+      "context": "Library",
+      "sliceType": "STATE_VIEW",
+      "commands": [],
+      "events": [],
+      "readmodels": [
+        {
+          "id": "3458764642070623250",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Active Borrowings",
+          "title": "Active Borrowings",
+          "fields": [
+            {
+              "name": "borrowDate",
+              "type": "Date",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "bookId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "READMODEL",
+          "description": "",
+          "aggregate": "Borrowing",
+          "aggregateDependencies": [
+            "Borrowing",
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642070540683",
+              "type": "OUTBOUND",
+              "title": "Return",
+              "elementType": "SCREEN"
+            },
+            {
+              "id": "3458764642064315598",
+              "type": "INBOUND",
+              "title": "Book borrowed",
+              "elementType": "EVENT"
+            },
+            {
+              "id": "3458764642064315586",
+              "type": "INBOUND",
+              "title": "Book added",
+              "elementType": "EVENT"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screens": [
+        {
+          "id": "3458764642070540683",
+          "tags": [],
+          "groupId": "3458764642070540686",
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Active Borrowings",
+          "title": "Return",
+          "fields": [
+            {
+              "name": "bookId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "borrowDate",
+              "type": "Date",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "isbn",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "SCREEN",
+          "description": "",
+          "aggregate": "Borrowing",
+          "aggregateDependencies": [
+            "Borrowing",
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642065112085",
+              "type": "OUTBOUND",
+              "title": "Return Book",
+              "elementType": "COMMAND"
+            },
+            {
+              "id": "3458764642073414451",
+              "type": "INBOUND",
+              "title": "Book Lookup",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642070623250",
+              "type": "INBOUND",
+              "title": "Active Borrowings",
+              "elementType": "READMODEL"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": true,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screenImages": [],
+      "screenLayouts": [],
+      "processors": [],
+      "tables": [],
+      "specifications": [],
+      "actors": [],
+      "aggregates": [
+        "Borrowing",
+        "Catalog Configuration"
+      ]
+    },
+    {
+      "id": "3458764642073537799",
+      "status": "Created",
+      "index": 17,
+      "title": "slice: Book Lookup",
+      "context": "Library",
+      "sliceType": "STATE_VIEW",
+      "commands": [],
+      "events": [],
+      "readmodels": [
+        {
+          "id": "3458764642073414451",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Book Lookup",
+          "title": "Book Lookup",
+          "fields": [
+            {
+              "name": "bookId",
+              "type": "String",
+              "mapping": "id",
+              "cardinality": "Single",
+              "idAttribute": true
+            },
+            {
+              "name": "description",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "isbn",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            }
+          ],
+          "type": "READMODEL",
+          "description": "",
+          "aggregate": "Catalog Configuration",
+          "aggregateDependencies": [
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642070540683",
+              "type": "OUTBOUND",
+              "title": "Return",
+              "elementType": "SCREEN"
+            },
+            {
+              "id": "3458764642064315586",
+              "type": "INBOUND",
+              "title": "Book added",
+              "elementType": "EVENT"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screens": [
+        {
+          "id": "3458764642070540683",
+          "tags": [],
+          "groupId": "3458764642070540686",
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Book Lookup",
+          "title": "Return",
+          "fields": [
+            {
+              "name": "bookId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "borrowDate",
+              "type": "Date",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "isbn",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "SCREEN",
+          "description": "",
+          "aggregate": "Catalog Configuration",
+          "aggregateDependencies": [
+            "Catalog Configuration"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642065112085",
+              "type": "OUTBOUND",
+              "title": "Return Book",
+              "elementType": "COMMAND"
+            },
+            {
+              "id": "3458764642073414451",
+              "type": "INBOUND",
+              "title": "Book Lookup",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642070623250",
+              "type": "INBOUND",
+              "title": "Active Borrowings",
+              "elementType": "READMODEL"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": true,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screenImages": [],
+      "screenLayouts": [],
+      "processors": [],
+      "tables": [],
+      "specifications": [],
+      "actors": [],
+      "aggregates": [
+        "Catalog Configuration"
+      ]
+    },
+    {
+      "id": "3458764642065112124",
+      "status": "Created",
+      "index": 19,
+      "title": "slice: Return Book",
+      "context": "Library",
+      "sliceType": "STATE_CHANGE",
+      "commands": [
+        {
+          "id": "3458764642065112085",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Return Book",
+          "title": "Return Book",
+          "fields": [
+            {
+              "name": "bookId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "COMMAND",
+          "description": "",
+          "aggregate": "Borrowing",
+          "aggregateDependencies": [
+            "Borrowing"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642064315600",
+              "type": "OUTBOUND",
+              "title": "Book returned",
+              "elementType": "EVENT"
+            },
+            {
+              "id": "3458764642070540683",
+              "type": "INBOUND",
+              "title": "Return",
+              "elementType": "SCREEN"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "events": [
+        {
+          "id": "3458764642064315600",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Return Book",
+          "title": "Book returned",
+          "fields": [
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "bookId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "EVENT",
+          "description": "",
+          "aggregate": "Borrowing",
+          "aggregateDependencies": [
+            "Borrowing"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642065112671",
+              "type": "OUTBOUND",
+              "title": "Overdue books",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642065112215",
+              "type": "OUTBOUND",
+              "title": "Returned Book Information",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642065112085",
+              "type": "INBOUND",
+              "title": "Return Book",
+              "elementType": "COMMAND"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "readmodels": [],
+      "screens": [
+        {
+          "id": "3458764642070540683",
+          "tags": [],
+          "groupId": "3458764642070540686",
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Return Book",
+          "title": "Return",
+          "fields": [
+            {
+              "name": "bookId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "borrowDate",
+              "type": "Date",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "isbn",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "SCREEN",
+          "description": "",
+          "aggregate": "Borrowing",
+          "aggregateDependencies": [
+            "Borrowing"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642065112085",
+              "type": "OUTBOUND",
+              "title": "Return Book",
+              "elementType": "COMMAND"
+            },
+            {
+              "id": "3458764642073414451",
+              "type": "INBOUND",
+              "title": "Book Lookup",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642070623250",
+              "type": "INBOUND",
+              "title": "Active Borrowings",
+              "elementType": "READMODEL"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": true,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screenImages": [],
+      "screenLayouts": [],
+      "processors": [],
+      "tables": [],
+      "specifications": [],
+      "actors": [
+        {
+          "name": "User"
+        }
+      ],
+      "aggregates": [
+        "Borrowing"
+      ]
+    },
+    {
+      "id": "3458764642065112285",
+      "status": "Created",
+      "index": 21,
+      "title": "slice: returned books",
+      "context": "Library",
+      "sliceType": "STATE_VIEW",
+      "commands": [],
+      "events": [],
+      "readmodels": [
+        {
+          "id": "3458764642065112215",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: returned books",
+          "title": "Returned Book Information",
+          "fields": [
+            {
+              "name": "bookId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "READMODEL",
+          "description": "",
+          "aggregate": "Borrowing",
+          "aggregateDependencies": [
+            "Borrowing"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642070897154",
+              "type": "OUTBOUND",
+              "title": "Late fee",
+              "elementType": "SCREEN"
+            },
+            {
+              "id": "3458764642064315600",
+              "type": "INBOUND",
+              "title": "Book returned",
+              "elementType": "EVENT"
+            },
+            {
+              "id": "3458764642064315598",
+              "type": "INBOUND",
+              "title": "Book borrowed",
+              "elementType": "EVENT"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screens": [
+        {
+          "id": "3458764642070897154",
+          "tags": [],
+          "groupId": "3458764642070897157",
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: returned books",
+          "title": "Late fee",
+          "fields": [
+            {
+              "name": "bookId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "description",
+              "type": "String",
+              "subfields": [],
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "isbn",
+              "type": "String",
+              "subfields": [],
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "title",
+              "type": "String",
+              "subfields": [],
+              "cardinality": "Single",
+              "idAttribute": false
+            }
+          ],
+          "type": "SCREEN",
+          "description": "",
+          "aggregate": "Borrowing",
+          "aggregateDependencies": [
+            "Borrowing"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642073414451",
+              "type": "INBOUND",
+              "title": "Book Lookup",
+              "elementType": "READMODEL"
+            },
+            {
+              "id": "3458764642065112215",
+              "type": "INBOUND",
+              "title": "Returned Book Information",
+              "elementType": "READMODEL"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": true,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screenImages": [],
+      "screenLayouts": [],
+      "processors": [],
+      "tables": [],
+      "specifications": [],
+      "actors": [],
+      "aggregates": [
+        "Borrowing"
+      ]
+    },
+    {
+      "id": "3458764642065160564",
+      "status": "Created",
+      "index": 23,
+      "title": "slice: Overdue books",
+      "context": "Library",
+      "sliceType": "STATE_VIEW",
+      "commands": [],
+      "events": [],
+      "readmodels": [
+        {
+          "id": "3458764642065112671",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Overdue books",
+          "title": "Overdue books",
+          "fields": [
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            },
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "bookId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "email",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            }
+          ],
+          "type": "READMODEL",
+          "description": "",
+          "aggregate": "Borrowing",
+          "aggregateDependencies": [
+            "Borrowing"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642065160003",
+              "type": "OUTBOUND",
+              "title": "automation",
+              "elementType": "AUTOMATION"
+            },
+            {
+              "id": "3458764642064315600",
+              "type": "INBOUND",
+              "title": "Book returned",
+              "elementType": "EVENT"
+            },
+            {
+              "id": "3458764642064315598",
+              "type": "INBOUND",
+              "title": "Book borrowed",
+              "elementType": "EVENT"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "screens": [],
+      "screenImages": [],
+      "screenLayouts": [],
+      "processors": [],
+      "tables": [],
+      "specifications": [],
+      "actors": [],
+      "aggregates": [
+        "Borrowing"
+      ]
+    },
+    {
+      "id": "3458764642065160591",
+      "status": "Created",
+      "index": 25,
+      "title": "slice: Process Overdue Notifcation",
+      "context": "Library",
+      "sliceType": "STATE_CHANGE",
+      "commands": [
+        {
+          "id": "3458764642065160112",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Process Overdue Notifcation",
+          "title": "Process Overdue Notifcation",
+          "fields": [
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            },
+            {
+              "name": "bookId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "email",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            }
+          ],
+          "type": "COMMAND",
+          "description": "",
+          "aggregate": "Borrowing",
+          "aggregateDependencies": [
+            "Borrowing"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642064315607",
+              "type": "OUTBOUND",
+              "title": "Overdue notification sent",
+              "elementType": "EVENT"
+            },
+            {
+              "id": "3458764642065160003",
+              "type": "INBOUND",
+              "title": "automation",
+              "elementType": "AUTOMATION"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "events": [
+        {
+          "id": "3458764642064315607",
+          "tags": [],
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Process Overdue Notifcation",
+          "title": "Overdue notification sent",
+          "fields": [
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            },
+            {
+              "name": "bookId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "email",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            }
+          ],
+          "type": "EVENT",
+          "description": "",
+          "aggregate": "Borrowing",
+          "aggregateDependencies": [
+            "Borrowing"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642065160112",
+              "type": "INBOUND",
+              "title": "Process Overdue Notifcation",
+              "elementType": "COMMAND"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "readmodels": [],
+      "screens": [],
+      "screenImages": [],
+      "screenLayouts": [],
+      "processors": [
+        {
+          "id": "3458764642065160003",
+          "tags": [],
+          "groupId": "3458764642065160009",
+          "modelContext": "Library",
+          "context": "INTERNAL",
+          "slice": "slice: Process Overdue Notifcation",
+          "title": "automation",
+          "fields": [
+            {
+              "name": "bookId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "email",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "userId",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": false
+            },
+            {
+              "name": "id",
+              "type": "String",
+              "cardinality": "Single",
+              "idAttribute": true
+            }
+          ],
+          "type": "AUTOMATION",
+          "description": "",
+          "aggregate": "Borrowing",
+          "aggregateDependencies": [
+            "Borrowing"
+          ],
+          "dependencies": [
+            {
+              "id": "3458764642065160112",
+              "type": "OUTBOUND",
+              "title": "Process Overdue Notifcation",
+              "elementType": "COMMAND"
+            },
+            {
+              "id": "3458764642065112671",
+              "type": "INBOUND",
+              "title": "Overdue books",
+              "elementType": "READMODEL"
+            }
+          ],
+          "createsAggregate": false,
+          "triggers": [],
+          "sketched": false,
+          "prototype": {
+            "activeByDefault": false
+          }
+        }
+      ],
+      "tables": [],
+      "specifications": [],
+      "actors": [],
+      "aggregates": [
+        "Borrowing"
+      ]
+    }
+  ],
+  "flows": [],
+  "aggregates": [
+    {
+      "id": "3458764642075526197",
+      "title": "Catalog Configuration",
+      "fields": [
+        {
+          "name": "id",
+          "type": "String",
+          "cardinality": "Single",
+          "idAttribute": true
+        }
+      ],
+      "type": "AGGREGATE"
+    },
+    {
+      "id": "3458764642075526926",
+      "title": "Borrowing",
+      "fields": [
+        {
+          "name": "id",
+          "type": "String",
+          "cardinality": "Single",
+          "idAttribute": true
+        }
+      ],
+      "type": "AGGREGATE"
+    }
+  ],
+  "actors": [
+    {
+      "id": "3458764642068839366",
+      "title": "admin",
+      "fields": [],
+      "type": "ACTOR"
+    },
+    {
+      "id": "3458764642075754542",
+      "title": "User",
+      "fields": [],
+      "type": "ACTOR"
+    }
+  ],
+  "context": "Library",
+  "codeGen": {
+    "application": "Library",
+    "rootPackage": "de.nebulit.axonconf"
+  },
+  "boardId": "uXjVIo6VNAA=",
+  "sliceGroups": [
+    {
+      "slices": [
+        "slice: Process Overdue Notifcation",
+        "slice: Overdue books",
+        "slice: returned books"
+      ],
+      "exclude": false,
+      "risk": 0
+    },
+    {
+      "slices": [
+        "slice: Activate Book",
+        "slice: Remove Book",
+        "slice: book",
+        "slice: Add Book"
+      ],
+      "exclude": false,
+      "risk": null
+    },
+    {
+      "slices": [
+        "slice: Return Book",
+        "slice: Book Lookup",
+        "slice: Active Borrowings",
+        "slice: Borrow User Book",
+        "slice: Catalogue"
+      ],
+      "exclude": false,
+      "risk": null
+    }
+  ],
+  "sliceImages": [],
+  "sliceLayouts": []
+}
