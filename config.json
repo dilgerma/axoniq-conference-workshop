@@ -421,7 +421,7 @@
       "id": "3458764642064804048",
       "status": "Created",
       "index": 3,
-      "title": "slice: book",
+      "title": "slice: books",
       "context": "Library",
       "sliceType": "STATE_VIEW",
       "commands": [],
@@ -432,7 +432,7 @@
           "tags": [],
           "modelContext": "Library",
           "context": "INTERNAL",
-          "slice": "slice: book",
+          "slice": "slice: books",
           "title": "Books",
           "fields": [
             {
@@ -502,7 +502,7 @@
           "groupId": "3458764642065599549",
           "modelContext": "Library",
           "context": "INTERNAL",
-          "slice": "slice: book",
+          "slice": "slice: books",
           "title": "Book Management",
           "fields": [
             {
@@ -576,7 +576,7 @@
         {
           "vertical": false,
           "id": "3458764642080003213",
-          "sliceName": "slice: book",
+          "sliceName": "slice: books",
           "title": "spec: New Catalog Book",
           "given": [
             {
@@ -1394,7 +1394,7 @@
               "name": "userId",
               "type": "String",
               "cardinality": "Single",
-              "idAttribute": false
+              "idAttribute": true
             },
             {
               "name": "email",
@@ -3157,7 +3157,7 @@
   "context": "Library",
   "codeGen": {
     "application": "Library",
-    "rootPackage": "de.nebulit.axonconf"
+    "rootPackage": "com.axoniqconf"
   },
   "boardId": "uXjVIo6VNAA=",
   "sliceGroups": [
@@ -3174,7 +3174,7 @@
       "slices": [
         "slice: Activate Book",
         "slice: Remove Book",
-        "slice: book",
+        "slice: books",
         "slice: Add Book"
       ],
       "exclude": false,

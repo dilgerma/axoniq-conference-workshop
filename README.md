@@ -1,16 +1,50 @@
-## AXONIQ Conference 2025 - Workshop
+![image](/images/logo.png)
+## AxonIQ Con25 - Workshop
+
+### TLDR;
+
+[Github Repo](https://github.com/dilgerma/axoniq-conference-workshop)
+
+[Miro Event Modeling Toolkit](https://miro.com/marketplace/eventmodeling/)
+
+Docker Container
+
+```
+docker pull nebulit/codegen
+````
+
+Run Docker Container
+
+```
+docker run -ti -p 3001:3000 -v $PWD:/workspace  --name codegen --rm nebulit/codegen:latest
+```
+
+
 
 Welcome to the AxonIQ Conference Workshop - Event Modeling / Event Sourcing / Slice Based Architectures
 
-### Part I - Event Modeling ( ~ 45 Minutes )
+### Part I - Event Modeling ( ~ 60 Minutes )
 
 We will work on an Event Model together - goal is for you to see how Event Modeling is used in a real world scenario.
 
-### Part II - Code Generation ( ~ 65 Minutes )
+### Part II - Code Generation ( ~ 50 Minutes )
 
-In this part of the workshop, we will divide into groups and work on Slices.
+You will hopefully learn 3 things in this Workshop:
+- the order of implementation for slices doesn´t really matter
+- no need for synchronisation apart from collaborative Modeling ( you can work independently )
+- no matter how close you got to finishing the system - you could have gone twice as fast by simply adding more developers.
 
-You´ll assign yourself a slice from the Event Model and work on that.
+You find the steps to work with the Code generation later in this document.
+
+Goal is to see the typical Workflow how to implement Slices based on an Event Model using Code Generation.
+
+Feel free to come up with new Requirements and model them:
+
+- Visit cancellation
+- Pet removed
+- billing
+- invoicing 
+- Visit Reminders
 
 ### Part III - QA ( ~10 Minutes )
 
@@ -19,13 +53,11 @@ Of course we can discuss also after the Workshop - feel free to just ask your qu
 
 ### Preparation
 
-Fork this Git Repository:
+Fork or Clone this Git Repository:
 
 [Git Repository](https://github.com/dilgerma/axoniq-conference-workshop)
 
-Put your Name and Github User into the Grid, to get access to the Repo.
-
-[Add your Name here](https://miro.com/app/board/uXjVIo6VNAA=/?moveToWidget=3458764642092291064&cot=14)
+Clone it to your local workspace.
 
 Get a free Miro Account ( or use one you already own )
 
@@ -35,16 +67,28 @@ Install the Miro Event Modeling Toolkit
 
 [Miro Event Modeling Toolkit](https://miro.com/marketplace/eventmodeling/)
 
-Download the Code Gen Container
+You can open it with this Button in the Sidebar.
+
+![image](/images/sidebar.png)
+
+Just search for Eventmodeling, if the App is not there yet.
+
+![image](/images/eventmodeling.png)
+
+
+Download the Code Gen Container (we´ll need it later for Code Generation)
 ```
 docker pull nebulit/codegen
 ```
 
-Programming Languages / Frameworks used:
+#### Programming Languages / Frameworks used:
 
 Kotlin
+
 Spring
+
 Spring Modulith
+
 Axon ( using Postgres as Event Store)
 
 ### Miro Board
@@ -52,7 +96,9 @@ Axon ( using Postgres as Event Store)
 The Miro Board we use is here:
 https://miro.com/app/board/uXjVIo6VNAA=/?moveToWidget=3458764642074524614&cot=14
 
-### Import Event Model to your own Board
+### Import Event Model to your own Board (optional)
+
+**This step is optional - and only relevant if you want to make adjustments to the Model.**
 
 In case you want add new Slices, Given / When / Thens or extend the Event Model, import it to your own Board to work on it with the 
 Event Modeling Toolkit.
@@ -95,7 +141,7 @@ The container keeps running in an interactive Shell.
 
 ![image](/images/gen.png)
 
-Whenever you click "Create Config", the current Event Model is exported to your local file system and is
+Whenever you click "Create Config" in the Miro Extension, the current Event Model is exported to your local file system and is
 accessible by the Code Generator.
 
 You can start the Code generator with the "gen" command.
@@ -120,9 +166,7 @@ If you defined GWTs - they are generated as inline-comments into the Aggregate a
 
 ## Our "Sprint"
 
-When you take a Slice into Implementation, take a black Assignee-Sticky and pin it to the Slice, so everybody knows it´s in progress.
-
-Slices can be implemented multiple times.
+When you take a Slice into Implementation, take one of your Teams Assignee-Sticky-Notes and pin it to the Slice, so everybody knows it´s in progress.
 
 ![image](/images/assignee.png)
 
@@ -130,9 +174,30 @@ Slices can be implemented multiple times.
 
 Generate the Command Handlers, Projections, and also Test Cases you defined.
 
-For each finished Slice, create a Pull Request on Github to merge to main.
+### Code Structure
+Slices are located directly in the package "com.axoniqconf"
+
+![image](/images/code_structure01.png)
+
+Aggregates and Commands are located in the package "domain"
+
+![image](/images/aggregate.png)
+
+For each finished Slice, merge the Feature-Slice-Branch to either main-Team-A, main-Team-B, main-Team-C, main-Team-D ( depending on your assigned Team )
 
 Goal is to have working software on main at the end of the Workshop.
+
+### Run the System
+
+Start the app with "src/test/kotlin/ApplicationStarter.kt"
+
+The App-Starter takes care to start the system and all dependencies ( Database )
+
+![image](/images/start.png)
+
+The app provides a Swagger-UI.
+
+http://localhost:8080/swagger-ui/index.html
 
 ## Things to try
 
@@ -167,3 +232,11 @@ Use AI to create screen layouts. Just describe the screen.
 
 Create Given / When / Thens using AI. First select a Slice,then describe the rules you want to desribe.
 ![image](/images/ai7.png)
+
+## Next Steps
+
+Try the [Web Modeling Toolkit](https://app.eventmodelers.de/canvas)
+
+Read more about Event Modeling in the [Little Book](https://nebulit.de/assets/littlebook/the-little-eventmodeling-book.pdf)
+
+Contribute - the Axon 5 Generator is already in progress. You can support! [Code Generators](https://github.com/dilgerma/nebulit-code-generators)
